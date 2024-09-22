@@ -1,3 +1,4 @@
+// src/components/menu/menu.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,9 +9,11 @@ const Menu: React.FC = () => {
         <li>
           <Link to="/" className="text-white">Главная</Link>
         </li>
-        <li>
-          <Link to="/training" className="text-white">Тренировки</Link>
-        </li>
+        {process.env.REACT_APP_DEV === 'true' && (
+          <li>
+            <Link to="/training" className="text-white">Тренировки</Link>
+          </li>
+        )}
         <li>
           <Link to="/about" className="text-white">О нас</Link>
         </li>

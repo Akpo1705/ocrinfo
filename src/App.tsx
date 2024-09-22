@@ -8,6 +8,7 @@ import Menu from './components/menu/menu';
 import Footer from './components/footer/footer';
 import About from './pages/About/about';
 
+
 function App() {
   return (
     <Router>

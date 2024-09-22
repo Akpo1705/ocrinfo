@@ -1,42 +1,20 @@
-// src/components/Menu.tsx
-import React, { useState } from 'react';
-
-interface MenuItem {
-  label: string;
-  path: string;
-}
-
-const menuItems: MenuItem[] = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Contact', path: '/contact' },
-];
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Menu: React.FC = () => {
-  const [activeItem, setActiveItem] = useState<string>(menuItems[0].path);
-
-  const handleItemClick = (path: string) => {
-    setActiveItem(path);
-  };
-
   return (
-    <nav>
-      <ul style={{ display: 'flex', listStyleType: 'none', padding: 0 }}>
-        {menuItems.map((item) => (
-          <li key={item.path} style={{ margin: '0 15px' }}>
-            <a
-              href={item.path}
-              onClick={() => handleItemClick(item.path)}
-              style={{
-                textDecoration: 'none',
-                color: activeItem === item.path ? 'blue' : 'black',
-              }}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+    <nav className="bg-gray-800 p-4">
+      <ul className="flex space-x-4">
+        <li>
+          <Link to="/" className="text-white">Главная</Link>
+        </li>
+        <li>
+          <Link to="/training" className="text-white">Тренировки</Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-white">О нас</Link>
+        </li>
+        {/* Добавьте другие ссылки по необходимости */}
       </ul>
     </nav>
   );
